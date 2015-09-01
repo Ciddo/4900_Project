@@ -1,0 +1,29 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<img id="motherboard" src="motherboard.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="500" height="500">
+
+<img id="ram" src="ram.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+<img id="cpu" src="cpu.png" draggable="true" ondragstart="drag(event)" width="150" height="150">
+<img id="hdd" src="hdd.png" draggable="true" ondragstart="drag(event)" width="200" height="150">
+
+</body>
+</html>
